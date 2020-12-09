@@ -1,36 +1,62 @@
-    <!doctype html>
-    <html lang="{{ app()->getLocale() }}">
-    <head>
-        <title>View Products | Product Store</title>
-        <!-- Styles etc. -->
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height"> 
-            <div class="content">
+@extends('layouts.master')
+
+@section('title', 'Nama Toko')
+
+@section('username', 'Nama User')
+
+@section('content')
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
                 <h1>Here's a list of available products</h1>
-                <table>
-                    <thead>
-                        <td>No KTP</td>
-                        <td>Nama Pelanggan</td>
-                        <td>Alamat</td>
-                        <td>No Hp</td>
-                    </thead>
-                    <tbody>
-                        @foreach ($pelanggans as $pelanggan)
-                            <tr>
-                                <td class="inner-table">{{ $pelanggan->noktp }}</td>
-                                <td>{{ $pelanggan->namaPelanggan }}</td>
-                                <td class="inner-table">{{ $pelanggan->alamat }}</td>
-                                <td class="inner-table">{{ $pelanggan->nohp }}</td>
-                                <td> 
-                                <a class="btn btn-round btn-primary" href="/pelanggans/edit/{{Crypt::encrypt($pelanggan->id)}}">Edit</a>                 
-                              <a class="btn btn-round btn-danger" href="/pelanggans/delete/{{$pelanggan->id}}" onclick="return confirm('pelanggan {{$pelanggan->namaPelanggan}} akan dihapus?')">Hapus</a> 
-                              </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <a class="btn btn-round btn-primary" href="#">Tambah Pelanggan</a>
+                </ol>
             </div>
         </div>
-    </body>
-    </html>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card card-primary">
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <th>No KTP</th>
+                                <th>Nama Pelanggan</th>
+                                <th>Alamat</th>
+                                <th>No Hp</th>
+                            </thead>
+                            <tbody>
+                                @foreach ($pelanggans as $pelanggan)
+                                <tr>
+                                    <td>{{ $pelanggan->noktp }}</td>
+                                    <td>{{ $pelanggan->namaPelanggan }}</td>
+                                    <td>{{ $pelanggan->alamat }}</td>
+                                    <td>{{ $pelanggan->nohp }}</td>
+                                    <td><a class="btn btn-round btn-primary" href="/pelanggans/edit/{{Crypt::encrypt($pelanggan->id)}}">Edit</a>                 
+                                        <a class="btn btn-round btn-danger" href="/pelanggans/delete/{{$pelanggan->id}}" onclick="return confirm('pelanggan {{$pelanggan->namaPelanggan}} akan dihapus?')">Hapus</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</section>
+@endsection
