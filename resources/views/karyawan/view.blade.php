@@ -43,10 +43,11 @@
                                     <td>{{ $karyawan->noktp }}</td>
                                     <td>{{ $karyawan->namaKaryawan }}</td>
                                     <td>{{ $karyawan->alamat }}</td>
+                                    <td>{{ $karyawan->nohp }}</td>
                                     <td>{{ $karyawan->kategoriKaryawan->kategori}}</td>
                                     <td>
                                         <a class="btn btn-round btn-primary" href="{{asset('')}}karyawans/edit/{{Crypt::encrypt($karyawan->id)}}">Edit</a>                 
-                                        <a class="btn btn-round btn-danger" href="{{asset('')}}/karyawans/delete/{{$karyawan->id}}" onclick="return confirm('Karyawan {{$karyawan->namaKaryawan}} akan dihapus?')">Hapus</a>
+                                        <a class="btn btn-round btn-danger" href="{{asset('')}}karyawans/delete/{{$karyawan->id}}" onclick="return confirm('Karyawan {{$karyawan->namaKaryawan}} akan dihapus?')">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach
