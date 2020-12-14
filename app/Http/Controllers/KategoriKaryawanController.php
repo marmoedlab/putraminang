@@ -17,7 +17,7 @@ class KategoriKaryawanController extends Controller
     {
         //
         $kategoriKaryawans = KategoriKaryawan::all();
-        return view('kategoriKaryawan.view', ['kategoriKaryawans' => $kategoriKaryawans]);
+        return view('kategorikaryawan.view', ['kategoriKaryawans' => $kategoriKaryawans]);
     }
 
     /**
@@ -28,7 +28,7 @@ class KategoriKaryawanController extends Controller
     public function create()
     {
         //
-        return view('kategoriKaryawan.create');
+        return view('kategorikaryawan.create');
     }
 
     /**
@@ -72,7 +72,7 @@ class KategoriKaryawanController extends Controller
         $kategoriKaryawans = KategoriKaryawan::where('id', $id)->first();
         
 
-        return View('kategoriKaryawan.edit',['kategoriKaryawans' => $kategoriKaryawans]);
+        return View('kategorikaryawan.edit',['kategoriKaryawans' => $kategoriKaryawans]);
     }
 
     /**

@@ -17,6 +17,6 @@ class Karyawan extends Model
     ];
 
     public function kategoriKaryawan() {
-    	return $this->belongsTo('App\Models\kategoriKaryawan', 'jenisKaryawan');
+    	return $this->belongsTo('App\Models\KategoriKaryawan', 'jenisKaryawan');
     }   
 }

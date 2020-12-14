@@ -73,7 +73,7 @@ class JenisSatuanBarangController extends Controller
         $JenisSatuanBarangs = JenisSatuanBarang::where('id', $id)->first();
         
 
-        return View('jenisSatuanBarang.edit',['JenisSatuanBarangs' => $JenisSatuanBarangs]);
+        return View('jenissatuanbarang.edit',['JenisSatuanBarangs' => $JenisSatuanBarangs]);
     }
 
     /**

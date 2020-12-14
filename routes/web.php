@@ -34,12 +34,12 @@ Route::get('/kategoriKaryawans/edit/{id}', 'KategoriKaryawanController@edit');
 Route::post('/kategoriKaryawans/update/{id}', 'KategoriKaryawanController@update');
 
 //-------Karyawan--------
-Route::get('/karyawans', 'karyawanController@index');
-Route::get('/karyawans/add', 'karyawanController@create');
-Route::post('/karyawans/store', 'karyawanController@store');
-Route::get('/karyawans/delete/{id}', 'karyawanController@destroy');
-Route::get('/karyawans/edit/{id}', 'karyawanController@edit');
-Route::post('/karyawans/update/{id}', 'karyawanController@update');
+Route::get('/karyawans', 'KaryawanController@index');
+Route::get('/karyawans/add', 'KaryawanController@create');
+Route::post('/karyawans/store', 'KaryawanController@store');
+Route::get('/karyawans/delete/{id}', 'KaryawanController@destroy');
+Route::get('/karyawans/edit/{id}', 'KaryawanController@edit');
+Route::post('/karyawans/update/{id}', 'KaryawanController@update');
 
 //-------Hutang Karyawan--------
 Route::get('/hutangKaryawans', 'HutangKaryawanController@index');
@@ -66,12 +66,12 @@ Route::get('/debitKredits/edit/{id}', 'DebitKreditController@edit');
 Route::post('/debitKredits/update/{id}', 'DebitKreditController@update');
 
 //-------Jenis Satuan Barang--------
-Route::get('/jenisSatuanBarangs', 'jenisSatuanBarangController@index');
-Route::get('/jenisSatuanBarangs/add', 'jenisSatuanBarangController@create');
-Route::post('/jenisSatuanBarangs/store', 'jenisSatuanBarangController@store');
-Route::get('/jenisSatuanBarangs/delete/{id}', 'jenisSatuanBarangController@destroy');
-Route::get('/jenisSatuanBarangs/edit/{id}', 'jenisSatuanBarangController@edit');
-Route::post('/jenisSatuanBarangs/update/{id}', 'jenisSatuanBarangController@update');
+Route::get('/jenisSatuanBarangs', 'JenisSatuanBarangController@index');
+Route::get('/jenisSatuanBarangs/add', 'JenisSatuanBarangController@create');
+Route::post('/jenisSatuanBarangs/store', 'JenisSatuanBarangController@store');
+Route::get('/jenisSatuanBarangs/delete/{id}', 'JenisSatuanBarangController@destroy');
+Route::get('/jenisSatuanBarangs/edit/{id}', 'JenisSatuanBarangController@edit');
+Route::post('/jenisSatuanBarangs/update/{id}', 'JenisSatuanBarangController@update');
 
 //-------Kategori Karyawan--------
 Route::get('/kategoriProduks', 'KategoriProdukController@index');

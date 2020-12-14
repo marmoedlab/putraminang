@@ -27,7 +27,7 @@
             <div class="col-12">
 
                 <div class="card card-primary">
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <th>Kategori</th>

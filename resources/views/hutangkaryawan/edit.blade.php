@@ -1,101 +1,63 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.master')
 
-        <title>Create Product | Product Store</title>
+@section('title', 'Nama Toko')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+@section('username', 'Nama User')
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-            .full-height {
-                height: 100vh;
-            }
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-            .position-ref {
-                position: relative;
-            }
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-            .content {
-                text-align: center;
-            }
-            .title {
-                font-size: 84px;
-            }
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-            .form-input{
-                margin-bottom: 20px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
+@section('content')
 
-            <div class="content">
-                <form method="POST" action="{{url('/hutangKaryawans/update', $hutangKaryawans->id)}}">
-                    @csrf
-                    <h1> Enter Details to create a product</h1>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
 
-                    <div class="form-input">
-                        <label>Tanggal Hutang</label>
-                        <input type="date" name="tanggalHutang" value="{{$hutangKaryawans->tanggalHutang}}">
-                    </div>
-
-                    <div class="form-input">
-                        <label>Nama Karyawan</label>
-                        <input type="text" name="namaKaryawan" value="{{$hutangKaryawans->namaKaryawan}}">
-                    </div>
-
-                    <div class="form-input">
-                        <label>Jumlah</label>
-                        <input type="text" name="jumlahHutang" value="{{$hutangKaryawans->jumlahHutang}}">
-                    </div>
-
-                     <div class="form-input">
-                        <label>Keterangan</label>
-                        <select name="keterangan">
-                            <option>{{$hutangKaryawans->keterangan}}</option>
-                            <option>Belanja</option>
-                            <option>Kasbon</option>
-                        </select>
-                    </div>
-
-                    
-
-                    <button type="submit">Submit</button>
-                </form>
+                <div class="card">
+                    <form action="{{url('/hutangKaryawans/update', $hutangKaryawans->id)}}" method="POST" class="form-horizontal" id="demo-form" enctype="multipart/form-data" data-parsley-validate>
+                        @csrf
+                        <div class="card-header">
+                            <h1> Enter Details to create a product</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Tanggal Hutang</label>
+                                <div class="col-sm-10">
+                                    <input type="date" name="tanggalHutang" placeholder="Tanggal Hutang" value="{{$hutangKaryawans->tanggalHutang}}" required="required" class="form-control" oninvalid="this.setCustomValidity('*Wajib di isi')" oninput="this.setCustomValidity('')">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Nama Karyawan</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="namaKaryawan" value="{{$hutangKaryawans->namaKaryawan}}" placeholder="Nama Karyawan" required="required" class="form-control" oninvalid="this.setCustomValidity('*Wajib di isi')" oninput="this.setCustomValidity('')">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Jumlah</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="jumlahHutang" value="{{$hutangKaryawans->jumlahHutang}}" placeholder="Jumlah" required="required" class="form-control" oninvalid="this.setCustomValidity('*Wajib di isi')" oninput="this.setCustomValidity('')">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Keterangan</label>
+                                <div class="col-sm-10">
+                                    <select name="keterangan" class="form-control select2bs4" required="required">
+                                        <option value="">--Pilih Jenis Karyawan--</option>
+                                        <option @if ($hutangKaryawans->keterangan === "Belanja") selected @endif value="Belanja">Belanja</option>
+                                        <option @if ($hutangKaryawans->keterangan === "Kasbon") selected @endif value="Kasbon">Kasbon</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
             </div>
+            <!-- /.col -->
         </div>
-    </body>
-</html>
+        <!-- /.row -->
+    </div>
+</section>
+@endsection

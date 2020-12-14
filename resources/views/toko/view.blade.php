@@ -25,10 +25,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-
                 <div class="card card-primary">
-                    <div class="card-body">
-                        <table id="example1" class="table table-bordered table-striped">
+                    <div class="card-body table-responsive">
+                        <table id="example1" class="table table-bordered table-hover">
                             <thead>
                                 <th>Nama</th>
                                 <th>No Hp</th>
@@ -50,15 +49,13 @@
                                 </tr>
                                 @endforeach
                             </tbody>
-                        </table>
-                    </div>
-                    <!-- /.card-body -->
+                        </tfoot>
+                    </table>
                 </div>
-                <!-- /.card -->
             </div>
-            <!-- /.col -->
+            <!-- /.card-body -->
         </div>
-        <!-- /.row -->
     </div>
+</div>
 </section>
 @endsection

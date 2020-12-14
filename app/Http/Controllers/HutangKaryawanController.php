@@ -75,7 +75,7 @@ class HutangKaryawanController extends Controller
         $hutangKaryawans = HutangKaryawan::where('id', $id)->first();
         
 
-        return View('hutangKaryawan.edit',['hutangKaryawans' => $hutangKaryawans]);
+        return View('hutangkaryawan.edit',['hutangKaryawans' => $hutangKaryawans]);
     }
 
     /**

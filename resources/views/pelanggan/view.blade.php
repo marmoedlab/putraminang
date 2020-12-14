@@ -14,7 +14,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <a class="btn btn-round btn-primary" href="#">Tambah Pelanggan</a>
+                    <a class="btn btn-round btn-primary" href="{{asset('/pelanggans/add')}}">Tambah Pelanggan</a>
                 </ol>
             </div>
         </div>
@@ -25,15 +25,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-
                 <div class="card card-primary">
-                    <div class="card-body">
-                        <table id="example1" class="table table-bordered table-striped">
+                    <div class="card-body ">
+                        <table id="example1" class="table table-bordered table-striped ">
                             <thead>
                                 <th>No KTP</th>
                                 <th>Nama Pelanggan</th>
                                 <th>Alamat</th>
                                 <th>No Hp</th>
+                                <th>Action</th>
                             </thead>
                             <tbody>
                                 @foreach ($pelanggans as $pelanggan)

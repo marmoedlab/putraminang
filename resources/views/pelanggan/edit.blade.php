@@ -1,101 +1,59 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.master')
 
-        <title>Create Product | Product Store</title>
+@section('title', 'Nama Toko')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+@section('username', 'Nama User')
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-            .full-height {
-                height: 100vh;
-            }
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-            .position-ref {
-                position: relative;
-            }
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-            .content {
-                text-align: center;
-            }
-            .title {
-                font-size: 84px;
-            }
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-            .form-input{
-                margin-bottom: 20px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
+@section('content')
 
-            <div class="content">
-                <form method="POST" action="{{url('/pelanggans/update', $pelanggans->id)}}">
-                    @csrf
-                    <h1> Enter Details to create a product</h1>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
 
-                    <div class="form-input">
-                        <label>No KTP</label>
-                        <input type="text" name="noktp" value="{{$pelanggans->noktp}}">
-                    </div>
-
-                    <div class="form-input">
-                        <label>Nama Pelanggan</label>
-                        <input type="text" name="namaPelanggan" value="{{$pelanggans->namaPelanggan}}">
-                    </div>
-
-                    <div class="form-input">
-                        <label>Alamat</label>
-                        <input type="text" name="alamat" value="{{$pelanggans->alamat}}">
-                    </div>
-
-                    <div class="form-input">
-                        <label>No Hp</label>
-                        <input type="text" name="nohp" value="{{$pelanggans->nohp}}">
-                    </div>
-
-                   
-
-                    
-
-                    
-
-                    <button type="submit">Submit</button>
-                </form>
+                <div class="card">
+                    <form action="{{url('/pelanggans/update', $pelanggans->id)}}" method="POST" class="form-horizontal" id="demo-form" enctype="multipart/form-data" data-parsley-validate>
+                        @csrf
+                        <div class="card-header">
+                            <h1> Enter Details to create a product</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">No KTP</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="noktp" placeholder="No KTP" value="{{$pelanggans->noktp}}" required="required" class="form-control" oninvalid="this.setCustomValidity('*Wajib di isi')" oninput="this.setCustomValidity('')">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Nama Pelanggan</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="namaPelanggan" placeholder="Nama Pelanggan" value="{{$pelanggans->namaPelanggan}}" required="required" class="form-control" oninvalid="this.setCustomValidity('*Wajib di isi')" oninput="this.setCustomValidity('')">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Alamat</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="alamat" placeholder="Alamat" value="{{$pelanggans->alamat}}" required="required" class="form-control" oninvalid="this.setCustomValidity('*Wajib di isi')" oninput="this.setCustomValidity('')">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">No Hp</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="nohp" placeholder="No Hp" value="{{$pelanggans->nohp}}" required="required" class="form-control" oninvalid="this.setCustomValidity('*Wajib di isi')" oninput="this.setCustomValidity('')">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
             </div>
+            <!-- /.col -->
         </div>
-    </body>
-</html>
+        <!-- /.row -->
+    </div>
+</section>
+@endsection
